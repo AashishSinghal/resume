@@ -1,0 +1,203 @@
+%-------------------------
+% Resume in Latex
+% Author: Aashish Singhal
+% Based off of: https://github.com/sb2nov/resume and https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\usepackage{ragged2e}%include this for alignments
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.7in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-3pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Aashish Singhal} \\ \vspace{1pt}
+    \small \textit{Software Engineer} \\[3pt]
+    \href{mailto:aashish451singhal@gmail.com}{\underline{aashish451singhal@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/iamaashish5}{\underline{Linkedin}} $|$
+    \href{https://github.com/AashishSinghal}{\underline{GitHub}} $|$
+    \href{https://aashishsinghal.com}{\underline{Portfolio}} $|$
+    {\underline{+91 9672080577}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section*{Summary}
+Software Engineer with 4+ years of experience building production AI/LLM systems and scalable web applications. Specialized in React, Next.js, Node.js, and TypeScript with expertise in AI infrastructure, distributed systems, and modern frontend architectures. Delivered 200+ production PRs at Empirical, reducing deployment failures by 40\% through systematic engineering and feature flag implementations. Proven track record in building end-to-end solutions from LLM integrations to mobile-responsive dashboards.\justifying % the content after/below this will be justified.
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: JavaScript, TypeScript, Python, Java, SQL (PostgreSQL), NoSQL, Redis} \\
+     \textbf{Frameworks \& Libraries}{: React, Next.js, Node.js, Express.js, TailwindCSS, Spring, Drizzle ORM, Zod, Redux, Zustand} \\
+     \textbf{AI/ML \& Tools}{: LLM APIs (Claude, GPT, Gemini), OpenAI Whisper, TensorFlow.js, Langfuse, Prompt Engineering} \\
+     \textbf{Developer Tools}{: Git, Docker, AWS (ECS, S3), Cloudflare Workers, Vercel, GitHub Actions, Rollbar, PostHog} \\
+     \textbf{Technologies}{: WebSockets, REST APIs, GraphQL, FFmpeg, OAuth, TOTP, CI/CD, Microservices}
+    }}
+ \end{itemize}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+  {Software Engineer}{Apr 2025 -- Dec 2026}
+  {Empirical.run - AI agent platform that writes and maintains software tests autonomously.}{Gurugram, India}
+  \resumeItemListStart
+  \resumeItem{\textbf{AI/LLM Infrastructure}: Engineered production multi-model LLM infrastructure (\textbf{Claude}, \textbf{GPT-5}, \textbf{Gemini}) with canonical message transformation, Zod v4 schema validation, Rollbar error tracking across \textbf{200+ PRs}.}
+  \resumeItem{\textbf{Distributed Systems}: Architected \textbf{Cloudflare Durable Objects} agent worker with \textbf{WebSocket} streaming, message queuing, SQL state management, and production monitoring (Langfuse, PostHog, Rollbar); implemented CI/CD automation and Drizzle ORM database architecture.}
+  \resumeItem{\textbf{Video Analysis Pipeline}: Built end-to-end video processing with custom frame extraction agent, deduplication algorithms, \textbf{OpenAI Whisper-1} transcription, multimodal tool responses, custom media-chrome player.}  \resumeItem{\textbf{Product Development}: Delivered Linear integration (OAuth, webhooks), GitHub PR management, authentication systems (Magic Links, TOTP), mobile-responsive React/Next.js dashboard, automated test triage workflow.}
+  \resumeItem{\textbf{Infrastructure \& Observability}: Implemented production monitoring stack with Langfuse tracing, PostHog analytics, and Rollbar APM; built CI/CD pipelines with ECS health checks, preview environments; designed database architecture with Drizzle ORM and comprehensive test artifact collection system.}
+\resumeItemListEnd
+
+    \resumeSubheading
+  {Member of Technical Staff 2}{Jan 2022 -- Apr 2025}
+  {Nutanix Technologies - it's a leading Hybrid Cloud solutions company.}{Bangalore, India}
+  \resumeItemListStart
+  \resumeItem{Integrated latest OS version deployment using feature flags for phased rollout to Sales portal, reducing deployment failures by \textbf{40\%}.}
+  \resumeItem{Migrated application frontend to new in-house UI library with feature flags, decreasing UI-related bug reports by \textbf{30\%}.}
+  \resumeItem{Designed and implemented feature flag portal, improving release efficiency by \textbf{25\%} and enhancing development velocity.}
+  \resumeItem{Built User Permission Manager, Bulk Edit Discount Term, and AOS features with React and GraphQL, increasing workflow automation by \textbf{20\%}.}
+\resumeItemListEnd
+
+\resumeSubheading
+  {Full-Stack Development Intern}{Jan 2021 - Dec 2021}
+  {Celebal Technologies - they excel in Data Science, Big Data, and Enterprise Cloud.}{Jaipur, India}
+  \resumeItemListStart
+    \resumeItem{Developed order management and HR portals with \textbf{50\%} performance improvement; mentored interns on React, Redux, and TypeScript, reducing deployment time by \textbf{30\%} and increasing order processing efficiency by \textbf{35\%}.}
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+   \resumeSubHeadingListStart
+     \resumeProjectHeading
+         {\textbf{\href{https://github.com/empirical-run/videostil}{Videostil - OSS Tool}} $|$ \emph{TypeScript, Node.js, FFmpeg, LLM APIs}}{Oct 2025}
+         \resumeItemListStart
+           \resumeItem{Open-sourced production video processing pipeline that extracts and deduplicates frames for LLM context windows, supporting \textbf{Claude}, \textbf{GPT}, and \textbf{Gemini} APIs with 6 releases on \textbf{npm}.}
+           \resumeItem{Engineered three deduplication algorithms (greedy, dynamic programming, sliding window) with FFmpeg integration, achieving frame normalization to 1280x720 and configurable FPS extraction.}
+           \resumeItem{Built interactive analysis viewer with built-in server for frame visualization and LLM-powered video analysis capabilities.}
+         \resumeItemListEnd
+     \resumeProjectHeading
+         {\textbf{\href{https://ai-detect.vercel.app}{AI Detect}} $|$ \emph{NextJS, TensorFlowJS, TailwindCSS, ShadcnUI}}{Feb 2024}
+         \resumeItemListStart
+           \resumeItem{Developed "AI Detect," leveraging Next.js, TensorFlow.js, Tailwind CSS, and ShadcnUI.}
+           \resumeItem{Enabled users to utilize their camera for object detection and record sessions seamlessly.}
+         \resumeItemListEnd
+   \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Poornima College of Engineering}{Jaipur, India}
+      {Bachelor’s degree in Computer Science}{2017 - 2021}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

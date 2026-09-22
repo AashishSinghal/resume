@@ -1,0 +1,96 @@
+%-------------------------
+% Shared preamble — all variants
+% Author: Aashish Singhal
+% Based off: https://github.com/sb2nov/resume  (Jake's resume template), MIT
+%------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xstring}
+\input{glyphtounicode}
+\usepackage{ragged2e}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
+
+% Margins — tightened for a one-page fit
+\addtolength{\oddsidemargin}{-0.85in}
+\addtolength{\evensidemargin}{-0.85in}
+\addtolength{\textwidth}{1.7in}
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{1.5in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% ATS: machine-readable PDF
+\pdfgentounicode=1
+
+%-------------------------
+% Resume building blocks
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Single-line role header: company descriptor folded into the title line (saves a line per role)
+\newcommand{\resumeRole}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $|$ \small#2 & #3 \quad \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.28in, itemsep=2pt, topsep=3pt, parsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------
+% VARIANT MACHINERY
+% \varItem{ai,backend}{text} renders the bullet only when \variant is in the list.
+% One source of truth: every bullet lives here once, tagged with where it appears.
+\newcommand{\varItem}[2]{%
+  \IfSubStr{,#1,}{,\variant,}{\resumeItem{#2}}{}%
+}
+% Block-level equivalent, for whole sections/roles.
+\newcommand{\varOnly}[2]{%
+  \IfSubStr{,#1,}{,\variant,}{#2}{}%
+}
