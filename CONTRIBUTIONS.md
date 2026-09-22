@@ -168,7 +168,6 @@ Pick 4–6. Each is backed by evidence above.
 **Product / full-stack**
 - Shipped a QC review platform from zero: role-gated evaluation list, transcript viewer with search + timestamp navigation, scorecard UI, and a human-in-the-loop accept/reject workflow that recomputes scores from reviewer answers.
 - Built an analytics workspace (org + agent views, trend bucketing, CSV/PDF export, RBAC) across **~24K lines** of frontend and backend changes.
-- Authored **197 PRs (148 merged)** and reviewed **209 PRs** across two services in 5 months.
 
 ---
 
