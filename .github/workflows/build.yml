@@ -1,0 +1,96 @@
+# Builds every variant and publishes the PDFs, so the current résumé is always
+# a download away without needing a laptop with LaTeX on it.
+#
+# Push to main  -> rebuilds and replaces the assets on the rolling `latest` release
+# Push a tag    -> cuts a permanent, versioned release  (make release VERSION=v1.2)
+# Manually      -> Actions tab, "Run workflow"
+
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+# Needed to publish releases.
+permissions:
+  contents: write
+
+# A newer push makes an in-flight build irrelevant.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Full TeX Live, so adding a package from a phone cannot fail the build on a
+    # missing .sty. Debian-based, so the runner's node works and JavaScript
+    # actions run inside the container.
+    container: texlive/texlive:latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure make is available
+        run: which make || (apt-get update && apt-get install -y --no-install-recommends make)
+
+      - name: Build every variant and enforce the one-page rule
+        run: make check
+
+      - name: Summarise
+        run: |
+          {
+            echo "### Résumé built"
+            echo
+            echo "| Variant | Size |"
+            echo "| --- | --- |"
+            for f in build/*.pdf; do
+              echo "| $(basename "$f") | $(du -h "$f" | cut -f1) |"
+            done
+            echo
+            echo "All variants fit on a single page."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Kept for every run, including ones that do not produce a release.
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdfs
+          path: build/*.pdf
+          retention-days: 90
+
+      # Rolling pointer at whatever main currently says.
+      - name: Update the latest release
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest
+          body: |
+            Built from `main` (${{ github.sha }}).
+
+            Three variants of the same source:
+
+            - **ai-platform** — AI infrastructure and LLM platform roles
+            - **backend-infra** — distributed systems and backend
+            - **fullstack** — product engineering
+
+            Replaced on every push to `main`. For a version that will not move,
+            use a tagged release.
+          files: build/*.pdf
+          prerelease: false
+          make_latest: false
+
+      # Permanent, for "the résumé I actually sent in March".
+      - name: Publish a versioned release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Résumé ${{ github.ref_name }}
+          body: |
+            Three variants of the same source, built from `${{ github.ref_name }}`.
+          files: build/*.pdf
+          make_latest: true

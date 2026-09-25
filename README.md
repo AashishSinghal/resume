@@ -24,6 +24,33 @@ build/Aashish-Singhal-fullstack.pdf
 
 Filenames are what a recruiter sees — they are intentionally not `main.pdf`.
 
+## Editing without a laptop
+
+The repository is the editor. Nothing needs LaTeX installed.
+
+**Press `.` on the GitHub repo page.** That opens github.dev — VS Code in the
+browser, with the whole repo. Edit any file in `core/`, commit from the sidebar,
+and GitHub Actions rebuilds all three variants. Works on an iPad. The GitHub
+mobile app handles a one-line fix from a phone.
+
+Then grab the PDF from **Releases → Latest**, which is replaced on every push to
+`main`.
+
+CI enforces the one-page rule, so an edit made on a train that pushes a variant
+onto a second page fails the build rather than quietly producing a two-page
+résumé.
+
+## Versions
+
+| | |
+|---|---|
+| Latest from `main` | Releases → **Latest**, replaced on every push |
+| A version that will not move | `make release VERSION=v1.2` |
+| Any past build | Actions → the run → **resume-pdfs** artifact (90 days) |
+
+Tag a release before sending the résumé somewhere that matters, so "the one I
+sent in March" stays downloadable after the source has moved on.
+
 ## Variants
 
 | Variant | Target roles | Header title |

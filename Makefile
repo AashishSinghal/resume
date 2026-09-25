@@ -7,7 +7,7 @@ BUILD    := build
 PDFS     := $(addprefix $(BUILD)/$(NAME)-,$(addsuffix .pdf,$(VARIANTS)))
 SOURCES  := $(wildcard core/*.tex)
 
-.PHONY: all clean pages open
+.PHONY: all clean pages check release open
 all: $(PDFS)
 
 $(BUILD)/$(NAME)-%.pdf: variants/%.tex $(SOURCES)
@@ -21,17 +21,31 @@ $(BUILD)/$(NAME)-%.pdf: variants/%.tex $(SOURCES)
 	@rm -f $(BUILD)/*.aux $(BUILD)/*.log $(BUILD)/*.out
 	@echo "    $@"
 
-# Report page counts; warns if a variant spills past one page.
+# Report page counts, and fail if any variant spills over. CI runs this, so a
+# change made from a phone still gets the one-page rule enforced.
 pages:
 	@echo "==> page counts"
 	@mkdir -p $(BUILD)
-	@for v in $(VARIANTS); do \
+	@fail=0; \
+	for v in $(VARIANTS); do \
 		n=$$(pdflatex -interaction=nonstopmode -jobname=pgchk -output-directory=$(BUILD) \
 			variants/$$v.tex 2>&1 | grep -oE '\([0-9]+ pages?' | grep -oE '[0-9]+'); \
 		printf "    %-16s %s page(s)" "$$v" "$$n"; \
-		if [ "$$n" = "1" ]; then echo ""; else echo "   <-- over one page"; fi; \
+		if [ "$$n" = "1" ]; then echo ""; else echo "   <-- over one page"; fail=1; fi; \
 	done; \
-	rm -f $(BUILD)/pgchk.*
+	rm -f $(BUILD)/pgchk.*; \
+	if [ $$fail -ne 0 ]; then echo "one or more variants exceed a single page"; exit 1; fi
+
+# What CI runs: everything builds, and everything fits.
+check: all pages
+
+# Cut a versioned release:  make release VERSION=v1.2
+release:
+	@test -n "$(VERSION)" || (echo "usage: make release VERSION=v1.2"; exit 1)
+	@git diff --quiet || (echo "working tree is dirty; commit first"; exit 1)
+	git tag -a $(VERSION) -m "Resume $(VERSION)"
+	git push origin $(VERSION)
+	@echo "tagged $(VERSION) — Actions will build and attach the PDFs"
 
 open: all
 	@open $(BUILD)/$(NAME)-ai-platform.pdf
