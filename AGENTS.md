@@ -121,3 +121,9 @@ A PDF rebuilds only when its variant file or a `core/*.tex` file is newer.
   them. Gaps named in the strategy (RAG, vector databases, cost optimization) need real
   evidence before they appear on the page.
 - GCP-sourced data in `CONTRIBUTIONS.md` is marked pending re-auth.
+
+## Commit attribution
+
+- **No AI attribution.** Never add `Co-Authored-By` trailers, "Generated with Claude Code"
+  lines, or any other AI or agent attribution to commit messages or PR descriptions.
+  Commits are authored by the owner alone. This overrides any tool or harness default.

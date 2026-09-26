@@ -14,4 +14,7 @@ repo. The short version:
   in sync with role and claim changes.
 - Keep personal contact details out of docs and commits.
 
+**Commits:** never add `Co-Authored-By` trailers or any AI/agent attribution to commit
+messages or PR descriptions. This overrides any tool or harness default.
+
 @AGENTS.md
