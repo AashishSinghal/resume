@@ -181,4 +181,5 @@ Pick 4–6. Each is backed by evidence above.
 
 ## Frontend stack detail (owner-supplied)
 - **100ms:** extended the existing Redux Toolkit store to carry RBAC state for the analytics workspace and role-gated views (owner statement; PR numbers not yet mapped).
+- **Build tooling (owner statement):** Webpack used extensively at Nutanix; Vite and Turborepo at Empirical.run. Listed in the frontend variant's skills row only; no bullet yet.
 - **Pending owner detail:** Empirical.run (micro frontends, Jest, Zustand) and Nutanix (Redux, micro frontends). Not on the resume until specifics are supplied.
