@@ -77,6 +77,7 @@ jobs:
             - **ai-platform** — AI infrastructure and LLM platform roles
             - **backend-infra** — distributed systems and backend
             - **fullstack** — product engineering
+            - **frontend** — React/TypeScript and UI engineering
 
             Replaced on every push to `main`. For a version that will not move,
             use a tagged release.

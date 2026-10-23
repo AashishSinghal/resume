@@ -2,7 +2,7 @@
 # Requires: pdflatex (TeX Live / MacTeX)
 
 NAME     := Aashish-Singhal
-VARIANTS := ai-platform backend-infra fullstack nodejs-backend
+VARIANTS := ai-platform backend-infra fullstack nodejs-backend frontend
 BUILD    := build
 PDFS     := $(addprefix $(BUILD)/$(NAME)-,$(addsuffix .pdf,$(VARIANTS)))
 SOURCES  := $(wildcard core/*.tex)

@@ -176,3 +176,10 @@ Pick 4–6. Each is backed by evidence above.
 1. **Sanitized** — this document carries no customer names, org/program/contact IDs, host addresses, credentials, secret names, GCP project or cluster identifiers, service-account emails, or registry paths. Internal repo names, PR numbers, and ticket IDs are kept so you can trace any claim back to its source. The source runbooks under `~/work/` are *not* sanitized — don't share those.
 2. **Applied to `main.tex`** — 100ms added as *Senior Software Engineer, Mar 2026 – Present* with 5 bullets drawn from §4; Empirical corrected to *Apr 2025 – Jan 2026*; summary and skills refreshed. **Unverified: office location, set to Bangalore, India — correct it if wrong.** Backup of the original at `main.tex.bak`.
 3. **Sharpen if you have it** — cost savings, SLA/turnaround improvement, or headcount-hours saved by the backfill automation. None of that is recorded in the sources; only you know it.
+
+---
+
+## Frontend stack detail (owner-supplied)
+- **100ms:** extended the existing Redux Toolkit store to carry RBAC state for the analytics workspace and role-gated views (owner statement; PR numbers not yet mapped).
+- **Build tooling (owner statement):** Webpack used extensively at Nutanix; Vite and Turborepo at Empirical.run. Listed in the frontend variant's skills row only; no bullet yet.
+- **Pending owner detail:** Empirical.run (micro frontends, Jest, Zustand) and Nutanix (Redux, micro frontends). Not on the resume until specifics are supplied.

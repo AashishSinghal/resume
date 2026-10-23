@@ -10,10 +10,15 @@
 
 \newcommand{\hmsAnalytics}{\resumeItem{\textbf{Analytics \& Performance}: Built an org/agent analytics workspace with trend bucketing, RBAC, and CSV/PDF export; eliminated production API timeouts by re-scoping aggregations to page date bounds and fixing index-hostile sorts.}}
 
+\newcommand{\hmsWorkspace}{\resumeItem{\textbf{Data-Dense UI}: Built the analytics workspace (org and agent views) in \textbf{React/TypeScript} with time-series charts, trend bucketing, timezone-stable date handling, and date filters synced across screens; extended the \textbf{Redux Toolkit} store to drive role-based access (RBAC) and shipped CSV/PDF export.}}
+
+\newcommand{\hmsFePerf}{\resumeItem{\textbf{Performance}: Eliminated production timeouts on the evaluations and analytics screens by scoping queries to page date bounds, fixing index-hostile default sorts, and dropping a 100-row page size.}}
+
 \resumeRole{Senior Software Engineer}{100ms --- AI call-quality platform}{Mar 2026 -- Oct 2026}{Bangalore, India}
 \resumeItemListStart
   \varOnly{ai}{\hmsAIEval \hmsPipelines \hmsJobs \hmsProduct}
   \varOnly{backend}{\hmsJobs \hmsPipelines \hmsAIEval \hmsAnalytics}
   \varOnly{fullstack}{\hmsProduct \hmsAnalytics \hmsPipelines \hmsAIEval}
+  \varOnly{frontend}{\hmsProduct \hmsWorkspace \hmsFePerf}
   \varOnly{nodejs}{\hmsProduct \hmsAnalytics \hmsPipelines \hmsJobs}
 \resumeItemListEnd
