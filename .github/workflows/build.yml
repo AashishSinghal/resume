@@ -78,6 +78,7 @@ jobs:
             - **backend-infra** — distributed systems and backend
             - **fullstack** — product engineering
             - **frontend-emergent** — frontend engineering, Emergent Labs
+            - **frontend-gokwik** — frontend engineering, GoKwik
 
             Replaced on every push to `main`. For a version that will not move,
             use a tagged release.

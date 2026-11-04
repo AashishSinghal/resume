@@ -7,15 +7,15 @@
 
 \newcommand{\empProduct}{\resumeItem{\textbf{Product Development}: Delivered Linear integration (OAuth, webhooks), GitHub PR management, authentication systems (Magic Links, TOTP), and a mobile-responsive React/Next.js dashboard with automated test triage.}}
 
-\newcommand{\empFrontend}{\resumeItem{\textbf{Frontend Architecture}: Split the test-run dashboard and the agent into \textbf{monorepo} packages (\textbf{Vite}, \textbf{Turborepo}), with the dashboard built from separate \textbf{micro frontends}; held dashboard state and user preferences in \textbf{Zustand} and tested most UI components with \textbf{Jest} in CI.}}
+\newcommand{\empFrontend}{\resumeItem{\textbf{Frontend Architecture}: Split the test-run dashboard and the agent into \textbf{monorepo} packages (\textbf{Vite}, \textbf{Turborepo}), with the dashboard built from separate \textbf{micro frontends}; held dashboard state and user preferences in \textbf{Zustand} and designed loading, error, and empty states; tested most UI components with \textbf{Jest} in CI.}}
 
-\newcommand{\empRender}{\resumeItem{\textbf{Rendering \& Accessibility}: Reworked the sessions list and sessions page, which pull large volumes of data from many services, into \textbf{SSR} and client components, giving faster rendering with far fewer reloads, crashes, and unstable state changes; improved accessibility so the product's own agent could navigate the dashboard.}}
+\newcommand{\empRender}{\resumeItem{\textbf{Rendering \& Accessibility}: Reworked the sessions list and sessions page, which pull large volumes of data from many services, into \textbf{SSR} and client components using profiler-based debugging and bundle analysis, giving faster rendering with far fewer reloads, crashes, and unstable state changes; improved accessibility so the product's own agent could navigate the dashboard.}}
 
 \resumeRole{Software Engineer}{Empirical.run --- autonomous software-testing agents}{Apr 2025 -- Jan 2026}{Gurugram, India}
 \resumeItemListStart
   \varOnly{ai}{\empAI \empVideo \empDistributed}
   \varOnly{backend}{\empDistributed \empAI \empProduct}
   \varOnly{fullstack}{\empProduct \empAI \empDistributed}
-  \varOnly{emergent}{\empFrontend \empRender \empProduct}
+  \varOnly{emergent,gokwik}{\empFrontend \empRender \empProduct}
   \varOnly{nodejs}{\empDistributed \empProduct \empAI}
 \resumeItemListEnd
