@@ -58,7 +58,7 @@ sent in March" stays downloadable after the source has moved on.
 | `ai-platform` *(primary)* | AI infrastructure, LLM platform, AI engineering | Senior Software Engineer · AI Platform |
 | `backend-infra` | Distributed systems, backend, platform | Senior Software Engineer · Backend & Infrastructure |
 | `fullstack` | Product engineering, full-stack | Senior Full-Stack Engineer |
-| `frontend` | Frontend, React/TypeScript, UI engineering | Senior Frontend Engineer |
+| `frontend-emergent` | Frontend, tailored to the Emergent Labs JD | Senior Frontend Engineer |
 
 Same facts in all three — only emphasis, ordering, and the summary change. Never invent per variant.
 

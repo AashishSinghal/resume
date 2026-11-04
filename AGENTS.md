@@ -65,6 +65,8 @@ How variants select content:
 - Role files define each bullet once as a macro (`\hmsAIEval`, `\empAI`, ...) and then
   list them in a different order per variant with `\varOnly`. Only `exp-100ms.tex` and
   `exp-empirical.tex` vary today; Nutanix, Celebal, projects, and education are shared.
+- JD-targeted variants are named `<role>-<company>` (e.g. `frontend-emergent`) and get their own
+  `\variant` tag, so two JDs for the same role can diverge without touching each other.
 - To add a variant: add `variants/<name>.tex`, pick a tag, add the tag to the `\varOnly`
   lines it should include, and add the name to `VARIANTS` in the `Makefile`.
 
