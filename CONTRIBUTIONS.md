@@ -180,6 +180,9 @@ Pick 4–6. Each is backed by evidence above.
 ---
 
 ## Frontend stack detail (owner-supplied)
-- **100ms:** extended the existing Redux Toolkit store to carry RBAC state for the analytics workspace and role-gated views (owner statement; PR numbers not yet mapped).
-- **Build tooling (owner statement):** Webpack used extensively at Nutanix; Vite and Turborepo at Empirical.run. Listed in the frontend variant's skills row only; no bullet yet.
-- **Pending owner detail:** Empirical.run (micro frontends, Jest, Zustand) and Nutanix (Redux, micro frontends). Not on the resume until specifics are supplied.
+- **100ms:** extended the existing Redux Toolkit store, which held dashboard state, to carry RBAC (owner statement; PR numbers not yet mapped).
+- **Empirical.run:** test-run dashboard and the agent split into monorepo packages (Vite, Turborepo); the dashboard was built from separate micro frontends; Zustand held most dashboard state and user preferences; most UI components were tested with Jest, run in CI.
+- **Nutanix:** large, old, heavily customised dashboard built from micro frontends; Redux held a very large amount of application state and user auth details; Webpack used heavily with custom rules and plugins. UI library: migrated to it only (suggested component changes; the library team maintained it). Led hackathons and took part in technical designs.
+- **Celebal:** mentored interns (React, Redux, TypeScript).
+- **Empirical.run, also:** took part in technical discussions and designs.
+- **Pending placement (role not yet confirmed):** SSR/client component split and rendering/state fixes for a data-heavy sessions list and sessions page; accessibility work so the company's own agent could navigate the dashboard; TOTP auth for the dashboard.
