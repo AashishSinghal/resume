@@ -183,3 +183,11 @@ Pick 4–6. Each is backed by evidence above.
 - **100ms:** extended the existing Redux Toolkit store to carry RBAC state for the analytics workspace and role-gated views (owner statement; PR numbers not yet mapped).
 - **Build tooling (owner statement):** Webpack used extensively at Nutanix; Vite and Turborepo at Empirical.run. Listed in the frontend variant's skills row only; no bullet yet.
 - **Pending owner detail:** Empirical.run (micro frontends, Jest, Zustand) and Nutanix (Redux, micro frontends). Not on the resume until specifics are supplied.
+
+---
+
+## Languages and projects (owner-supplied, 2026-11-05)
+- **Java:** used full time at Nutanix (owner statement). Listed in the Languages row in every variant; `java-backend` leads with it. No Java bullet yet, pending specifics (what was built, for how long).
+- **Python:** used at 100ms, at Empirical.run, and in a personal project (owner statement). Already in the Languages row; no bullet yet, pending specifics.
+- **PHP:** used at Celebal (owner statement). Not on the resume.
+- **Voice Agent (personal project, public):** <https://github.com/AashishSinghal/voice-agent-demo>, first commit 2025-12-29, latest 2026-11-02. Interruptible voice agent over WebSocket: TypeScript gateway (Groq Whisper STT, streamed LLM, sentence-by-sentence TTS) and a Python reasoning service on FastAPI + LangGraph (`brain/`: token-budgeted context assembler, cost guard with a model degradation chain, tool registry with risk levels, config-driven MCP connectors, spoken yes/no approvals), React frontend. Source for the Voice Agent project on the `ai-agents` variant.

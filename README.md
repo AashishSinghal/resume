@@ -1,12 +1,13 @@
 # Résumé — Aashish Singhal
 
-LaTeX résumé with **one source of truth** and three targeted variants. Every bullet is written once
+LaTeX résumé with **one source of truth** and one PDF per targeted variant (every file in `variants/`). Every bullet is written once
 in `core/` and tagged with which variants it appears in, so the versions can never drift apart.
 
 ## Build
 
 ```bash
-make            # build all three variants into build/
+make            # build every variant in variants/ into build/
+make list       # markdown list of variants (used for the release notes)
 make pages      # build and report page counts (warns if a variant exceeds one page)
 make open       # build and open the AI-platform variant
 make clean      # remove build/
@@ -14,13 +15,7 @@ make clean      # remove build/
 
 Requires `pdflatex` (TeX Live / MacTeX).
 
-Output:
-
-```
-build/Aashish-Singhal-ai-platform.pdf
-build/Aashish-Singhal-backend-infra.pdf
-build/Aashish-Singhal-fullstack.pdf
-```
+Output: one `build/Aashish-Singhal-<variant>.pdf` per file in `variants/`.
 
 Filenames are what a recruiter sees — they are intentionally not `main.pdf`.
 
@@ -30,7 +25,7 @@ The repository is the editor. Nothing needs LaTeX installed.
 
 **Press `.` on the GitHub repo page.** That opens github.dev — VS Code in the
 browser, with the whole repo. Edit any file in `core/`, commit from the sidebar,
-and GitHub Actions rebuilds all three variants. Works on an iPad. The GitHub
+and GitHub Actions rebuilds every variant. Works on an iPad. The GitHub
 mobile app handles a one-line fix from a phone.
 
 Then grab the PDF from **Releases → Latest**, which is replaced on every push to
@@ -53,14 +48,23 @@ sent in March" stays downloadable after the source has moved on.
 
 ## Variants
 
+Every file in `variants/` is a variant. Adding `variants/<name>.tex` is enough: the Makefile discovers it,
+CI builds it on every push, pull request and release, and the release notes list it (from the file's
+`% VARIANT:` header comment).
+
 | Variant | Target roles | Header title |
 |---|---|---|
 | `ai-platform` *(primary)* | AI infrastructure, LLM platform, AI engineering | Senior Software Engineer · AI Platform |
+| `ai-agents` | LLM agents + evals, full-stack leaning (ElevenLabs Creative Agents JD) | Senior Software Engineer · AI Agents & Evaluation |
+| `ai-safety` | LLM output validation / guardrails, backend leaning (ElevenLabs Safety JD) | Senior Software Engineer · LLM Validation & Backend |
 | `backend-infra` | Distributed systems, backend, platform | Senior Software Engineer · Backend & Infrastructure |
+| `platform-engineer` | Platform / AI tooling infrastructure (Supabase JD) | Senior Software Engineer · Platform & Backend |
+| `java-backend` | Java backend developer | Senior Software Engineer · Backend (Java, Go) |
+| `nodejs-backend` | Node.js backend developer | Backend Developer |
 | `fullstack` | Product engineering, full-stack | Senior Full-Stack Engineer |
 | `frontend` | Frontend, React/TypeScript, UI engineering | Senior Frontend Engineer |
 
-Same facts in all three — only emphasis, ordering, and the summary change. Never invent per variant.
+Same facts in all variants — only emphasis, ordering, and the summary change. Never invent per variant.
 
 ## Layout
 
@@ -75,9 +79,8 @@ core/
   projects.tex
   education.tex
 variants/
-  ai-platform.tex   sets \variant, \resumeTitle, \resumeSummary, \skillsOrder → \input core/body
-  backend-infra.tex
-  fullstack.tex
+  <name>.tex        sets \variant, \resumeTitle, \resumeSummary, \skillsOrder → \input core/body
+  (one file per variant; see the table above)
 archive/            previous single-file version, kept for reference
 ```
 

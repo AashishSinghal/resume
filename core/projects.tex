@@ -25,9 +25,22 @@
       \resumeItemListEnd%
 }
 
+\newcommand{\projectVoice}{%
+  \resumeProjectHeading
+      {\textbf{\href{https://github.com/AashishSinghal/voice-agent-demo}{Voice Agent --- Open Source}} $|$ \emph{Python, FastAPI, LangGraph, TypeScript, React}}{2026}
+      \resumeItemListStart
+        \resumeItem{Built an interruptible voice agent over WebSocket (Groq Whisper, streamed LLM, sentence-by-sentence TTS) with a \textbf{Python} reasoning service on \textbf{FastAPI} and \textbf{LangGraph}: token-budgeted context, cost-guarded model fallback, and MCP tool connectors.}
+      \resumeItemListEnd%
+}
+
 \section{Projects}
    \resumeSubHeadingListStart
+     % A variant may set \def\withVoice{} to lead with the Voice Agent project (replaces the default list).
+     \ifdefined\withVoice
+       \projectVoice \projectVideostil \projectTriage
+     \else
      \varOnly{ai,backend,fullstack}{\projectVideostil \projectTriage \projectTOTP}
      \varOnly{frontend}{\projectTriage \projectTOTP \projectVideostil}
      \varOnly{nodejs}{\projectTriage \projectVideostil \projectTOTP}
+     \fi
    \resumeSubHeadingListEnd

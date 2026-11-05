@@ -1,7 +1,7 @@
 # Resume (LaTeX) — Project Directives
 
-Aashish Singhal's resume in LaTeX, built from one shared source in `core/` into three
-targeted variants: `ai-platform` (primary), `backend-infra`, and `fullstack`. Based on
+Aashish Singhal's resume in LaTeX, built from one shared source in `core/` into one PDF per
+file in `variants/` (see the README table; `ai-platform` is the primary one). Based on
 Jake's resume template (sb2nov/resume, MIT), as noted in `core/preamble.tex`.
 
 Read `RESUME-STRATEGY.md` (positioning, variant strategy, layout rules) and
@@ -50,7 +50,8 @@ core/
   exp-empirical.tex, exp-nutanix.tex, exp-celebal.tex
   projects.tex, education.tex
 variants/
-  ai-platform.tex, backend-infra.tex, fullstack.tex
+  <name>.tex   one file per variant (auto-discovered by the Makefile)
+scripts/list-variants.sh   markdown list for the release notes (reads each file's '% VARIANT:' header)
 archive/original-resume.tex   previous single-file version, reference only
 Makefile
 build/             output PDFs (gitignored)
@@ -65,8 +66,11 @@ How variants select content:
 - Role files define each bullet once as a macro (`\hmsAIEval`, `\empAI`, ...) and then
   list them in a different order per variant with `\varOnly`. Only `exp-100ms.tex` and
   `exp-empirical.tex` vary today; Nutanix, Celebal, projects, and education are shared.
-- To add a variant: add `variants/<name>.tex`, pick a tag, add the tag to the `\varOnly`
-  lines it should include, and add the name to `VARIANTS` in the `Makefile`.
+- To add a variant: add `variants/<name>.tex` with a first-line `% VARIANT: <description>` comment.
+  The Makefile, CI and release notes pick it up automatically (no `VARIANTS` edit). Set `\variant`
+  to an existing tag (`ai`, `backend`, `fullstack`, `frontend`, `nodejs`) to reuse its bullet order,
+  or add a new tag to the `\varOnly` lines. `\def\withVoice{}` makes the projects list lead with
+  the Voice Agent project. Keep every variant to one page (`make pages`) and every summary under 50 words.
 
 ## Build
 

@@ -7,3 +7,4 @@ build/
 *.fdb_latexmk
 *.synctex.gz
 .DS_Store
+release-notes.md

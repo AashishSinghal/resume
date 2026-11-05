@@ -11,6 +11,8 @@ on:
   push:
     branches: [main]
     tags: ['v*']
+  # Builds and enforces the one-page rule on pull requests too; releases are only cut from main and tags.
+  pull_request:
   workflow_dispatch:
 
 # Needed to publish releases.
@@ -54,6 +56,24 @@ jobs:
             echo "All variants fit on a single page."
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # Release notes list every file in variants/ (from each file's '% VARIANT:' header),
+      # so adding a variant needs no workflow edit.
+      - name: Write release notes
+        run: |
+          {
+            echo "Built from \`${GITHUB_REF_NAME}\` (${GITHUB_SHA})."
+            echo
+            echo "All variants are generated from the same source in \`core/\`:"
+            echo
+            make list
+            echo
+            if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+              echo "This is a permanent, versioned release."
+            else
+              echo "Replaced on every push to \`main\`. For a version that will not move, use a tagged release."
+            fi
+          } > release-notes.md
+
       # Kept for every run, including ones that do not produce a release.
       - name: Upload PDFs as artifacts
         uses: actions/upload-artifact@v4
@@ -69,18 +89,7 @@ jobs:
         with:
           tag_name: latest
           name: Latest
-          body: |
-            Built from `main` (${{ github.sha }}).
-
-            Three variants of the same source:
-
-            - **ai-platform** — AI infrastructure and LLM platform roles
-            - **backend-infra** — distributed systems and backend
-            - **fullstack** — product engineering
-            - **frontend** — React/TypeScript and UI engineering
-
-            Replaced on every push to `main`. For a version that will not move,
-            use a tagged release.
+          body_path: release-notes.md
           files: build/*.pdf
           prerelease: false
           make_latest: false
@@ -91,7 +100,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: Résumé ${{ github.ref_name }}
-          body: |
-            Three variants of the same source, built from `${{ github.ref_name }}`.
+          body_path: release-notes.md
           files: build/*.pdf
           make_latest: true

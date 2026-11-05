@@ -2,12 +2,13 @@
 # Requires: pdflatex (TeX Live / MacTeX)
 
 NAME     := Aashish-Singhal
-VARIANTS := ai-platform backend-infra fullstack nodejs-backend frontend
+# Every file in variants/ is a variant: add variants/<name>.tex and it is built and released automatically.
+VARIANTS := $(sort $(basename $(notdir $(wildcard variants/*.tex))))
 BUILD    := build
 PDFS     := $(addprefix $(BUILD)/$(NAME)-,$(addsuffix .pdf,$(VARIANTS)))
 SOURCES  := $(wildcard core/*.tex)
 
-.PHONY: all clean pages check release open
+.PHONY: all clean pages check release open list
 all: $(PDFS)
 
 $(BUILD)/$(NAME)-%.pdf: variants/%.tex $(SOURCES)
@@ -46,6 +47,10 @@ release:
 	git tag -a $(VERSION) -m "Resume $(VERSION)"
 	git push origin $(VERSION)
 	@echo "tagged $(VERSION) — Actions will build and attach the PDFs"
+
+# Markdown list of variants (from each file's '% VARIANT:' header); used for release notes.
+list:
+	@sh scripts/list-variants.sh
 
 open: all
 	@open $(BUILD)/$(NAME)-ai-platform.pdf
