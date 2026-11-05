@@ -11,7 +11,7 @@ on:
   push:
     branches: [main]
     tags: ['v*']
-  # Builds and enforces the one-page rule on pull requests too; releases are only cut from main and tags.
+  # Builds and enforces the two-page limit on pull requests too; releases are only cut from main and tags.
   pull_request:
   workflow_dispatch:
 
@@ -39,7 +39,7 @@ jobs:
       - name: Ensure make is available
         run: which make || (apt-get update && apt-get install -y --no-install-recommends make)
 
-      - name: Build every variant and enforce the one-page rule
+      - name: Build every variant and enforce the two-page limit
         run: make check
 
       - name: Summarise
@@ -53,7 +53,7 @@ jobs:
               echo "| $(basename "$f") | $(du -h "$f" | cut -f1) |"
             done
             echo
-            echo "All variants fit on a single page."
+            echo "All variants fit within two pages."
           } >> "$GITHUB_STEP_SUMMARY"
 
       # Release notes list every file in variants/ (from each file's '% VARIANT:' header),

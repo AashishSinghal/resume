@@ -8,7 +8,7 @@ in `core/` and tagged with which variants it appears in, so the versions can nev
 ```bash
 make            # build every variant in variants/ into build/
 make list       # markdown list of variants (used for the release notes)
-make pages      # build and report page counts (warns if a variant exceeds one page)
+make pages      # build and report page counts (warns if a variant exceeds two pages)
 make open       # build and open the AI-platform variant
 make clean      # remove build/
 ```
@@ -31,7 +31,7 @@ mobile app handles a one-line fix from a phone.
 Then grab the PDF from **Releases → Latest**, which is replaced on every push to
 `main`.
 
-CI enforces the one-page rule, so an edit made on a train that pushes a variant
+CI enforces the two-page limit, so an edit made on a train that pushes a variant
 onto a second page fails the build rather than quietly producing a two-page
 résumé.
 
@@ -116,7 +116,7 @@ To add a variant: add `variants/<name>.tex`, pick a `\variant` tag, add that tag
 
 ## Constraints worth keeping
 
-- **One page.** `make pages` enforces it. Standard up to ~8–10 years of experience.
+- **Two pages max.** `make pages` enforces it.
 - **ATS-safe.** Single column, standard section headers, real selectable text, no graphics,
   no header/footer content, `\pdfgentounicode=1`. Don't add a two-column skills sidebar.
 - **Spell tools exactly as job posts do** — "Node.js", "Kubernetes", "Google Kubernetes Engine (GKE)".

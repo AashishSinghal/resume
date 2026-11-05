@@ -27,10 +27,10 @@ Read `RESUME-STRATEGY.md` (positioning, variant strategy, layout rules) and
 
 ## Hard constraints
 
-- **One page per variant.** Check with `make pages`.
+- **Two pages per variant (at most).** Check with `make pages`.
 - **ATS-safe.** Single column, standard section headers, real selectable text, no graphics,
   icons, sidebars, or header/footer content. Keep `\pdfgentounicode=1`.
-- Do not go below 10pt or below about 0.4in effective margins. Do not remove the Summary.
+- Keep 11pt and 0.5in margins (readability over density). Do not remove the Summary.
 - Summary under 50 words.
 - Spell tools the way job posts do: "Node.js", "Kubernetes", "Google Kubernetes Engine (GKE)".
   No keyword stuffing.
@@ -41,7 +41,7 @@ Read `RESUME-STRATEGY.md` (positioning, variant strategy, layout rules) and
 
 ```
 core/
-  preamble.tex     document class (10pt), margins, layout macros, \varItem / \varOnly
+  preamble.tex     document class (11pt), margins, layout macros, \varItem / \varOnly
   body.tex         section order; \input by every variant
   heading.tex      name + contact links, reads \resumeTitle
   summary.tex      reads \resumeSummary
@@ -70,7 +70,7 @@ How variants select content:
   The Makefile, CI and release notes pick it up automatically (no `VARIANTS` edit). Set `\variant`
   to an existing tag (`ai`, `backend`, `fullstack`, `frontend`, `nodejs`) to reuse its bullet order,
   or add a new tag to the `\varOnly` lines. `\def\withVoice{}` makes the projects list lead with
-  the Voice Agent project. Keep every variant to one page (`make pages`) and every summary under 50 words.
+  the Voice Agent project. Keep every variant within two pages (`make pages`) and every summary under 50 words.
 
 ## Build
 
@@ -78,7 +78,7 @@ Requires `pdflatex` (TeX Live / MacTeX).
 
 ```bash
 make          # build all variants into build/
-make pages    # report page counts, flags any variant over one page
+make pages    # report page counts, flags any variant over two pages
 make open     # build, then open the ai-platform PDF
 make clean    # remove build/
 ```

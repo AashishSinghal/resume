@@ -7,7 +7,7 @@ repo. The short version:
   or add ML claims. If evidence is missing, ask.
 - **One source of truth in `core/`.** Variants (`variants/*.tex`) change only title,
   summary, skills order, and bullet order via `\varOnly` / `\varItem`, never the facts.
-- **One page, ATS-safe, single column.** Check with `make pages`.
+- **Two pages max, ATS-safe, single column.** Check with `make pages`.
 - Build with `make`; output is `build/Aashish-Singhal-<variant>.pdf`.
 - After changing the fullstack variant, copy `build/Aashish-Singhal-fullstack.pdf` to
   `../portfolio-nextjs/public/resume.pdf`, and keep `portfolio-nextjs/src/data/work.ts`

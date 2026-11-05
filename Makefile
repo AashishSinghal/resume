@@ -22,7 +22,7 @@ $(BUILD)/$(NAME)-%.pdf: variants/%.tex $(SOURCES)
 	@rm -f $(BUILD)/*.aux $(BUILD)/*.log $(BUILD)/*.out
 	@echo "    $@"
 
-# Report page counts, and fail if any variant spills over. CI runs this, so a
+# Report page counts, and fail if any variant spills past two pages. CI runs this, so a
 # change made from a phone still gets the one-page rule enforced.
 pages:
 	@echo "==> page counts"
@@ -32,10 +32,10 @@ pages:
 		n=$$(pdflatex -interaction=nonstopmode -jobname=pgchk -output-directory=$(BUILD) \
 			variants/$$v.tex 2>&1 | grep -oE '\([0-9]+ pages?' | grep -oE '[0-9]+'); \
 		printf "    %-16s %s page(s)" "$$v" "$$n"; \
-		if [ "$$n" = "1" ]; then echo ""; else echo "   <-- over one page"; fail=1; fi; \
+		if [ "$$n" -le 2 ]; then echo ""; else echo "   <-- over two pages"; fail=1; fi; \
 	done; \
 	rm -f $(BUILD)/pgchk.*; \
-	if [ $$fail -ne 0 ]; then echo "one or more variants exceed a single page"; exit 1; fi
+	if [ $$fail -ne 0 ]; then echo "one or more variants exceed two pages"; exit 1; fi
 
 # What CI runs: everything builds, and everything fits.
 check: all pages
