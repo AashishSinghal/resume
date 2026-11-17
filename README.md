@@ -61,6 +61,7 @@ CI builds it on every push, pull request and release, and the release notes list
 | `platform-engineer` | Platform / AI tooling infrastructure (Supabase JD) | Senior Software Engineer · Platform & Backend |
 | `java-backend` | Java backend developer | Senior Software Engineer · Backend (Java, Go) |
 | `nodejs-backend` | Node.js backend developer | Backend Developer |
+| `ande-fullstack` | Full-stack React + Node.js, GraphQL, AWS (Ande JD) | Senior Full-Stack Engineer · React & Node.js |
 | `fullstack` | Product engineering, full-stack | Senior Full-Stack Engineer |
 | `frontend` | Frontend, React/TypeScript, UI engineering | Senior Frontend Engineer |
 
