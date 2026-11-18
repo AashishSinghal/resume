@@ -102,7 +102,8 @@ A PDF rebuilds only when its variant file or a `core/*.tex` file is newer.
   changed and why (see `git log`). Numeric corrections are called out explicitly.
 - Keep personal contact details out of docs and commit messages; they live only in
   `core/heading.tex`.
-- LaTeX: escape `%`, `&`, `$`; use `$\rightarrow$`, `---` and `--` as existing files do.
+- LaTeX: escape `%`, `&`, `$`; use `$\rightarrow$` and `--` (en dash, for ranges like `Jan 2022 -- Apr 2025`) as existing files do.
+- **No em dashes anywhere in resume content (`core/` and `variants/`)** (neither the `—` character nor LaTeX `---`). Use a comma, colon, parentheses, or restructure the sentence. This applies to every variant, `core/` file, and new bullet.
 
 ## Gotchas
 

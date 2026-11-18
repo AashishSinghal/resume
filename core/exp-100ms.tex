@@ -1,4 +1,4 @@
-%--- 100ms (current) ---
+%% 100ms (left 16 Sep 2026)
 % Each bullet is defined once, then ordered per variant below.
 \newcommand{\hmsAIEval}{\resumeItem{\textbf{LLM Evaluation}: Replaced rule-based compliance and escalation detection with \textbf{LLM transcript analysis}; hardened prompts and output schemas over 10+ iterations to guarantee timestamp-anchored, in-bounds evidence. Built a \textbf{Langfuse} dataset bridge closing the production-to-eval-set loop, and ran 20-iteration consistency experiments to measure prompt stability before shipping.}}
 
@@ -6,7 +6,7 @@
 
 \newcommand{\hmsJobs}{\resumeItem{\textbf{Distributed Systems}: Built idempotent, resumable \textbf{Kubernetes} Jobs with checkpoint resume and concurrent sweep convergence, recovering \textbf{96\%} of transient failures in under 6 minutes; sharded a \textbf{400K}-record ClickHouse/MongoDB migration across 6 parallel jobs with QPS throttling and zero errors. Derived a first-principles pod-sizing model that cut memory allocation \textbf{4x}.}}
 
-\newcommand{\hmsProduct}{\resumeItem{\textbf{Product Engineering}: Shipped an AI call-quality review platform from zero in \textbf{Go} and \textbf{React/TypeScript} --- role-gated evaluation list, transcript viewer with search and timestamp navigation, scorecard UI, and a human-in-the-loop accept/reject workflow that recomputes scores from reviewer answers.}}
+\newcommand{\hmsProduct}{\resumeItem{\textbf{Product Engineering}: Shipped an AI call-quality review platform from zero in \textbf{Go} and \textbf{React/TypeScript}, including a role-gated evaluation list, transcript viewer with search and timestamp navigation, scorecard UI, and a human-in-the-loop accept/reject workflow that recomputes scores from reviewer answers.}}
 
 \newcommand{\hmsAnalytics}{\resumeItem{\textbf{Analytics \& Performance}: Built an org/agent analytics workspace with trend bucketing, RBAC, and CSV/PDF export; eliminated production API timeouts by re-scoping aggregations to page date bounds and fixing index-hostile sorts.}}
 
@@ -14,7 +14,7 @@
 
 \newcommand{\hmsFePerf}{\resumeItem{\textbf{Performance}: Eliminated production timeouts on the evaluations and analytics screens by scoping queries to page date bounds, fixing index-hostile default sorts, and dropping a 100-row page size.}}
 
-\resumeRole{Senior Software Engineer}{100ms --- AI call-quality platform}{Mar 2026 -- Oct 2026}{Bangalore, India}
+\resumeRole{Senior Software Engineer}{100ms: AI call-quality platform}{Mar 2026 -- Sep 2026}{Bangalore, India}
 \resumeItemListStart
   \varOnly{ai}{\hmsAIEval \hmsPipelines \hmsJobs \hmsProduct}
   \varOnly{backend}{\hmsJobs \hmsPipelines \hmsAIEval \hmsAnalytics}
